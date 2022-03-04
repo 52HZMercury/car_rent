@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.carRent4_0.mapper.moneyMapper">
+
+
+    <select id="getmoney" resultType="money">
+        select * from totalmoney where id = '1'
+    </select>
+
+
+    <update id="updatemoney" parameterType="double">
+        update totalmoney set money = #{money} where id ='1'
+    </update>
+
+
+</mapper>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>rentcar</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+
+    <style type="text/css">
+        body,table{
+            font-size:12px;
+        }
+        table{
+            table-layout:fixed;
+            empty-cells:show;
+            border-collapse: collapse;
+            margin:0 auto;
+        }
+        td{
+            height:20px;
+        }
+        h1,h2,h3{
+            font-size:12px;
+            margin:0;
+            padding:0;
+        }
+
+        .title {
+            background: #FFF;
+            border: 1px ;
+            padding: 1px;
+            width:90%;
+            margin:20px auto; }
+        .title h1 {
+            line-height: 31px;
+            text-align:center;
+            background: #2F589C;
+            background-repeat: repeat-x;
+            background-position: 0 0; color: #FFF; }
+        .title th,
+        .title td {
+            border: 1px solid #CAD9EA;
+            padding: 5px;
+        }
+
+
+        /*这个是借鉴一个论坛的样式*/
+        table.t1{
+            border:1px solid #cad9ea;
+            color:#666;
+        }
+        table.t1 th {
+
+            background-repeat:repeat-x;
+            height:30px;
+        }
+        table.t1 td,table.t1 th{
+            border:1px solid #cad9ea;
+            padding:0 1em 0;
+        }
+        table.t1 tr.a1{
+            background-color:#f5fafe;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<form>
+
+    <table width="90%" id="mytab"  border="1" class="t1">
+        <th colspan="4" style="text-align: center">
+            用户管理
+        </th>
+        <tr class="a1">
+
+            <th>用户id</th>
+            <th>用户昵称</th>
+            <th>用户权限</th>
+            <th>操作</th>
+        </tr>
+
+        <tr th:each="users:${Allusers}" >
+
+            <td th:text="${users.getId()}"></td>
+            <td th:text="${users.getName()}"></td>
+            <td th:text = "${users.getType()==1?'管理员':'普通用户'}"></td>
+            <td>
+                <a class="btn btn-sm btn-primary" th:href="@{'/admin/userUpdate/'+${users.getId()}}">编辑</a>
+                <a class="btn btn-sm btn-danger" th:href="@{'/admin/userdelete/'+${users.getId()}}">删除</a>
+            </td>
+        </tr>
+
+
+    </table>
+
+</form>
+
+
+</body>
+</html>

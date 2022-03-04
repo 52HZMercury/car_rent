@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>租车成功</title>
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/admin.css}">
+</head>
+
+<body>
+<div class="main">
+        <h3 th:text="${TotalMoney<1.0?'抱歉，您好像没有选择车辆哦。。。':'租车成功，你需要支付的金额为'}"></h3>
+        <p th:text="${TotalMoney}"></p>
+        <a th:href="@{/}">返回首页</a>
+</div>
+</body>
+</html>

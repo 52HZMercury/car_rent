@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>rentcar</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+
+    <style type="text/css">
+        body,table{
+            font-size:12px;
+        }
+        table{
+            table-layout:fixed;
+            empty-cells:show;
+            border-collapse: collapse;
+            margin:0 auto;
+        }
+        td{
+            height:20px;
+        }
+        h1,h2,h3{
+            font-size:12px;
+            margin:0;
+            padding:0;
+        }
+
+        .title {
+            background: #FFF;
+            border: 1px ;
+            padding: 1px;
+            width:90%;
+            margin:20px auto; }
+        .title h1 {
+            line-height: 31px;
+            text-align:center;
+            background: #2F589C;
+            background-repeat: repeat-x;
+            background-position: 0 0; color: #FFF; }
+        .title th,
+        .title td {
+            border: 1px solid #CAD9EA;
+            padding: 5px;
+        }
+
+
+        /*这个是借鉴一个论坛的样式*/
+        table.t1{
+            border:1px solid #cad9ea;
+            color:#666;
+        }
+        table.t1 th {
+
+            background-repeat:repeat-x;
+            height:30px;
+        }
+        table.t1 td,table.t1 th{
+            border:1px solid #cad9ea;
+            padding:0 1em 0;
+        }
+        table.t1 tr.a1{
+            background-color:#f5fafe;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<form th:action="@{/user/success.html}" method="post">
+
+<table width="90%" id="mytab"  border="1" class="t1">
+    <th colspan="5" style="text-align: center">
+        大巴
+    </th>
+
+    <tr class="a1">
+        <th>大巴品牌</th>
+        <th>座位</th>
+        <th>日租金</th>
+        <th>车牌号</th>
+        <th>操作</th>
+    </tr>
+
+    <tr th:each="bus:${Allbus}" >
+
+        <td th:text="${bus.getBrand()}"></td>
+        <td th:text="${bus.getSeat()}"></td>
+        <td th:text="${bus.getPerRent()}"></td>
+        <td th:text="${bus.getVehicled()}"></td>
+        <td ><input type="radio" name = "Vehicledbus"  th:value="${bus.getVehicled()}">租用</td>
+    </tr>
+
+    <tfoot>
+    <td><h3>请输入想要租赁的天数</h3></td>
+    <td colspan="4">
+        <input style="height: 32px;border:none;margin:3px 10px 3px 10px;"  th:value="0" type="text" name ="daybus" class="form-control">
+    </td>
+    </tfoot>
+
+</table>
+
+<table width="90%" id="mytab2"  border="1" class="t1">
+    <th colspan="5" style="text-align: center">
+        汽车
+    </th>
+    <tr class="a1">
+        <th>汽车品牌</th>
+        <th>型号</th>
+        <th>日租金</th>
+        <th>车牌号</th>
+        <th>操作</th>
+    </tr>
+
+    <tr th:each="car:${Allcar}" >
+
+        <td th:text="${car.getBrand()}"></td>
+        <td th:text="${car.getType()}"></td>
+        <td th:text="${car.getPerRent()}"></td>
+        <td th:text="${car.getVehicled()}"></td>
+        <td ><input type="radio" name = "Vehicledcar"  th:value="${car.getVehicled()}">租用</td>
+    </tr>
+
+    <tfoot>
+    <td><h3>请输入想要租赁的天数</h3></td>
+    <td colspan="4">
+        <input style="height: 32px;border:none;margin:3px 10px 3px 10px;"  th:value="0" type="text" name ="daycar" class="form-control">
+    </td>
+    </tfoot>
+
+</table>
+
+<table width="90%" id="mytab3"  border="1" class="t1">
+    <th colspan="5" style="text-align: center">
+        卡车
+    </th>
+
+    <tr class="a1">
+        <th>卡车品牌</th>
+        <th>装载量</th>
+        <th>日租金</th>
+        <th>车牌号</th>
+        <th>操作</th>
+    </tr>
+
+    <tr th:each="truck:${Alltruck}" >
+
+        <td th:text="${truck.getBrand()}"></td>
+        <td th:text="${truck.getLoadage()}"></td>
+        <td th:text="${truck.getPerRent()}"></td>
+        <td th:text="${truck.getVehicled()}"></td>
+        <td ><input type="radio" name = "Vehicledtruck" th:value="${truck.getVehicled()}">租用</td>
+    </tr>
+
+    <tfoot>
+        <td>
+            <h3>请输入想要租赁的天数</h3>
+        </td>
+        <td colspan="4">
+            <input style="height: 32px;border:none;margin:3px 10px 3px 10px;"  th:value="0" type="text" name ="daytruck" class="form-control">
+        </td>
+    </tfoot>
+
+</table>
+
+
+    <button style="position: relative;left: 50%; transform: translateX(-50%);" type=submit class="btn  btn-primary">选好了</button>
+</form>
+
+</body>
+</html>

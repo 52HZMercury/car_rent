@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.carRent4_0.mapper.TruckMapper">
+
+    <select id="queryTruckList" resultType="Truck">
+        select * from  truck
+    </select>
+
+    <select id="loadTruckByVehicled" resultType="Truck">
+        select * from truck where Vehicled = #{Vehicled};
+    </select>
+
+
+    <insert id="addTruck" parameterType="Truck">
+        insert into truck (Vehicled,brand,perRent,loadage) values (#{Vehicled},#{brand},#{perRent},#{loadage})
+    </insert>
+
+    <update id="upDateTruck" parameterType="Truck">
+        update truck set brand =#{brand}, perRent = #{perRent},loadage= #{loadage} where Vehicled =#{Vehicled}
+    </update>
+
+    <delete id="deleteTruck" parameterType="String">
+        delete from truck where Vehicled  = #{Vehicled}
+    </delete>
+</mapper>

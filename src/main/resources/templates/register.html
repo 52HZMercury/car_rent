@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">  <!-- 命名空间 -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>注册</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/signin.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{css/admin.css}">
+</head>
+
+<body class="text-center">
+
+<form class="form-signin" th:action="@{/register}" method="post">
+
+
+    <p style="color:red " th:text="${rmsg}">  </p>
+
+       <table class="formtable" style="width:100%">
+            <tr>
+                <td>会员账号</td>
+                <td>
+                    <input type="text" name ="id" class="form-control" placeholder="会员账号" required="" autofocus="">
+                </td>
+            </tr>
+
+            <tr>
+                <td>姓名：</td>
+                <td>
+                    <input type="text" name ="username" class="form-control" placeholder="用户名" required="" autofocus="">
+                </td>
+            </tr>
+
+            <tr>
+                <td>密码：</td>
+                <td>
+                    <input type="password" name="password" id = "password" class="form-control" placeholder="密码" required="">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="6" class="command">
+                    <input type="submit" class="btn btn-lg btn-primary btn-block" value="注册"/>
+                    <input type="reset" class="btn btn-lg btn-primary btn-block" value="重置"/>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+
+</form>
+
+</body>
+
+</html>

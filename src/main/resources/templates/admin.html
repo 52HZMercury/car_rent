@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <link rel="stylesheet" th:href="@{css/admin.css}">
+</head>
+
+<body>
+
+    <div class="main">
+        <h3>欢迎来到Mercury的汽车管理系统!</h3>
+        <h3>总营业额</h3>
+        <p th:text="${session.totalsalemoney}"></p>
+        <a th:href="@{/admin/dashboard.html}">车辆管理</a>
+        <a th:href="@{/admin/userdashboard.html}">用户管理</a>
+    </div>
+
+</body>
+
+</html>

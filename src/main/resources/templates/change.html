@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">  <!-- 命名空间 -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Signin Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/signin.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"  th:href="@{/css/admin.css}">
+</head>
+
+<body class="text-center">
+
+<form class="form-signin" th:action="@{/change}" method="post">
+    <img style="border: 1px solid #e3e3e3;border-radius: 50px;" class="mb-4" th:src="@{https://prts.wiki/images/2/29/%E5%A4%B4%E5%83%8F_%E8%9C%9C%E8%8E%93.png}" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">请输入更改后的信息</h1>
+    <label class="sr-only">Username</label>
+
+
+
+    <input type="text" name ="username" class="form-control" placeholder="用户名" required="" autofocus="">
+    <label class="sr-only">Password</label>
+    <input type="password" name="password" class="form-control" placeholder="密码" required="">
+    <div class="checkbox mb-3">
+        <label>
+
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">更改</button>
+
+
+</form>
+
+</body>
+
+</html>

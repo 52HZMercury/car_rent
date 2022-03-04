@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.carRent4_0.mapper.BusMapper">
+
+    <select id="queryBusList" resultType="Bus">
+        select * from  bus
+    </select>
+
+    <select id="loadBusByVehicled" resultType="Bus">
+        select * from bus where Vehicled = #{Vehicled};
+    </select>
+
+
+    <insert id="addBus" parameterType="Bus">
+        insert into bus (Vehicled,brand,perRent,seat) values (#{Vehicled},#{brand},#{perRent},#{seat})
+    </insert>
+
+    <update id="upDateBus" parameterType="Bus">
+        update bus set brand =#{brand}, perRent = #{perRent},seat = #{seat} where Vehicled =#{Vehicled}
+    </update>
+
+    <delete id="deleteBus" parameterType="String">
+        delete from bus where Vehicled  = #{Vehicled}
+    </delete>
+</mapper>

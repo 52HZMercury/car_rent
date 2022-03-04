@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" th:href="@{css/index.css}">
+
+    <style>
+        .right-side-list-box{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(100px,-50%);
+            height: 600px;
+            /*background-color: red;*/
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            list-style: none;
+        }
+        .right-side-list-box>li>div:first-child{
+            font-size: 32px;
+        }
+        /*.right-side-list-box>li>div:last-child{*/
+        /*    */
+        /*}*/
+        .right-side-list-box>li{
+            transition: 0.5s ease-in;
+            border: 1px solid #e3e3e3;
+            padding: 10px;
+            border-radius: 2px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .right-side-list-box>li:hover{
+            transform: translateX(-100px);
+        }
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar">
+    
+    <div class="nav-item userinfo-box">
+        <span>
+            <a th:href="@{/login.html}" th:if="${session.loginusername!=null}" class="username">[[${session.loginusername}]]</a>
+            <a th:href="@{/change.html}" th:if="${session.loginusername!=null}" class="change-userinfo">更改用户信息</a>  
+        </span>
+        
+        <span>
+            <a th:href="@{/logout}"  th:if="${session.loginusername!=null}" class=login-out>注销</a>
+        </span>  
+    </div>
+
+    
+    <div class="nav-item login-box">
+
+        <a class="nav-link" th:if="${session.loginusername==null}" th:href="@{/register.html}">注册</a>
+    </div>
+</nav>
+
+
+
+<div class="mask">
+    <div class="good-name">Mercury</div>
+
+    <div class="rent">
+
+        <a class="nav-link nav-link2" th:if="${session.loginusername==null}" th:href="@{/login.html}">登录后开始租车吧</a>
+
+    </div>
+
+    <div class="rent">
+        <a class="nav-link nav-link2" th:if="${session.loginusername!=null}" th:href="@{/user/rentVehicle.html}">点击开始租车</a>
+    </div>
+
+    <div class="rentmsg">
+        <p  style="color:red " th:text="${rmsg}">  </p>
+        <p  style="color:red " th:text="${cmsg}">  </p>
+    </div>
+
+    <div class="next">
+        <div class="component-pic">
+            <img th:src="@{/img/arrow-down.png}" alt="">
+            <img th:src="@{/img/arrow-down.png}" alt="">
+        </div>
+        
+    </div>
+    
+    <div class="right-side-list-box">
+
+            <li>
+                <div>7*24小时客服</div>
+                <div>187-8893-7085</div>
+            </li>
+            <li>
+                <div>双信用免押租车</div>
+                <div>没信用就租车就免了</div>
+            </li>
+            <li>
+                <div>支持自主取还车</div>
+                <div>因为我们是不会帮你取还的</div>
+            </li>
+            <li>
+                <div>全程安全保障</div>
+                <div>老司机带你飞</div>
+            </li>
+    </div>
+</div>
+
+
+
+</body>
+<script th:src="@{/js/index.js}"></script>
+</html>
